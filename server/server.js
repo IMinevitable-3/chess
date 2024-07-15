@@ -7,7 +7,8 @@ import "./src/mongoose.js";
 import userRouter from "./src/routes/user.js";
 import roomRouter from "./src/routes/room.js";
 import { createOrUpdateRoom } from "./src/controllers/roomController.js";
-
+import dotenv from "dotenv";
+dotenv.config();
 const app = express();
 app.use(express.json());
 app.use(cors());
