@@ -1,13 +1,6 @@
 import mongoose from "mongoose";
-import dotenv from "dotenv";
-
-dotenv.config();
-const mongoUrl = process.env.MONGO_URL;
 mongoose
-  .connect(mongoUrl, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
+  .connect(process.env.MONGO_URI || "mongodb://localhost:27017")
   .then((res) => {
     console.log("DB Connected!");
   })
@@ -17,10 +10,9 @@ mongoose
 
 const connectDatabase = async () => {
   try {
-    mongoose.connect(mongoUrl, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    });
+    await mongoose.connect(
+      process.env.MONGO_URI || "mongodb://localhost:27017"
+    );
 
     console.log("connected to database");
   } catch (error) {

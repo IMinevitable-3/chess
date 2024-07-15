@@ -34,7 +34,7 @@ Make sure you have the following installed on your machine:
 
    ```bash
     npm install
-    cd chess-backed
+    cd client
     npm install
    ```
 
