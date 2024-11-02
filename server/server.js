@@ -8,7 +8,7 @@ import userRouter from "./src/routes/user.js";
 import roomRouter from "./src/routes/room.js";
 import { createOrUpdateRoom } from "./src/controllers/roomController.js";
 import dotenv from "dotenv";
-dotenv.config();
+dotenv.config({ path: '../.env' });
 const app = express();
 app.use(express.json());
 app.use(cors());
@@ -63,5 +63,6 @@ io.on("connection", (socket) => {
 app.get("/", async (req, res) => {
   res.send("api is running");
 });
-
-server.listen(process.env.PORT || 3001);
+const PORT = process.env.PORT
+console.log(`I m up on port ${PORT}` )
+server.listen(PORT || 3001);
